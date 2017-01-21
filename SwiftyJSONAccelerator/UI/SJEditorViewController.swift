@@ -185,14 +185,9 @@ class SJEditorViewController: NSViewController, NSTextViewDelegate {
             alert.runModal()
         }
     }
-
+  
     func libraryForIndex(_ index: Int) -> JSONMappingLibrary {
-        if index == 2 {
-            return JSONMappingLibrary.ObjectMapper
-        } else if index == 3 {
-            return JSONMappingLibrary.Marshal
-        }
-        return JSONMappingLibrary.SwiftyJSON
+      return JSONMappingLibrary.enumFromMenuItemIndex(index: index)
     }
 
     @IBAction func recalcEnabledBoxes(_ sender: AnyObject) {

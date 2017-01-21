@@ -52,6 +52,22 @@ enum JSONMappingLibrary: String {
   case SwiftyJSON
   case ObjectMapper
   case Marshal
+  case ServerShare
+
+  static func enumFromMenuItemIndex( index:Int) -> JSONMappingLibrary {
+    switch(index) {
+    case 0, 1:
+      return JSONMappingLibrary.SwiftyJSON
+    case 2:
+      return JSONMappingLibrary.ObjectMapper
+    case 3:
+      return JSONMappingLibrary.Marshal
+    case 4:
+      return JSONMappingLibrary.ServerShare
+    default:
+      return JSONMappingLibrary.SwiftyJSON
+    }
+  }
 }
 
 /**

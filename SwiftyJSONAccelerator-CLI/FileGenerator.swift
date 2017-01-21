@@ -28,7 +28,11 @@ struct FileGenerator {
     }
 
     static func stringFor(filename: String) throws -> String {
+
+      print("FileGenerator stringFor \(filename)")
         switch filename {
+        case "ServerShareTemplate":
+          return "  // MARK: ServerShareTemplate SwiftyJSON Initializers\n  /// Initiates the instance based on the object.\n  ///\n  /// - parameter object: The object of either Dictionary or Array kind that was passed.\n  /// - returns: An initialized instance of the class.\n  public convenience init(object: Any) {\n    self.init(json: JSON(object))\n  }\n\n  /// Initiates the instance based on the JSON that was passed.\n  ///\n  /// - parameter json: JSON object from SwiftyJSON.\n  public{REQUIRED}init(json: JSON) {\n{INITIALIZER}\n  }\n"
         case "MarshalTemplate":
             return "  // MARK: Marshal Initializers\n\n  /// Map a JSON object to this class using Marshal.\n  ///\n  /// - parameter object: A mapping from ObjectMapper\n  public{REQUIRED}init(object: MarshaledObject) {\n{INITIALIZER}\n  }\n"
         case "ObjectMapperTemplate":
